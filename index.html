@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+      <link rel="stylesheet" href="style.css">
+     
+<script>
+
+function backspace() {
+var value = document.getElementById("result").value
+ document.getElementById("result").value = value.substring(0, value.length - 1)
+}
+
+function sqrt() {
+    var z = document.getElementById("result").value
+    document.getElementById("result").value = Math.sqrt(z)
+}
+ function cuberoot() {
+    var z = document.getElementById("result").value
+    document.getElementById("result").value = Math.cbrt(z)
+}
+function log() {
+    var z = document.getElementById("result").value
+    document.getElementById("result").value = Math.log10(z)
+}
+function ln() {
+    var z = document.getElementById("result").value
+    document.getElementById("result").value = Math.log(z)
+}
+function abs() {
+    var z = document.getElementById("result").value
+    document.getElementById("result").value = Math.abs(z)
+}
+function exp() {
+    var z = document.getElementById("result").value
+    document.getElementById("result").value = Math.exp(z)
+}
+function floor() {
+    var z = document.getElementById("result").value
+    document.getElementById("result").value = Math.floor(z)
+}
+ function sin() {
+    var z = document.getElementById("result").value
+    document.getElementById("result").value = Math.sin(z*Math.PI/180)
+} 
+function cos() {
+    var z = document.getElementById("result").value
+    if (z==90) {
+    document.getElementById("result").value = Math.floor(Math.cos(z*Math.PI/180))
+}
+else{
+    document.getElementById("result").value = Math.cos(z*Math.PI/180)
+}
+}   
+function tan() {
+    var z = document.getElementById("result").value
+    if (z==90) {
+    document.getElementById("result").value ="∞" 
+}
+    else if (z==45) {
+        document.getElementById("result").value ="1" 
+    }
+
+else{
+    document.getElementById("result").value = Math.tan(z*Math.PI/180)
+}
+}
+function factorial(){
+    
+    var z=document.getElementById("result").value;
+    if(z==0){
+        document.getElementById("result").value="1"
+
+    }
+    else{
+        var z=document.getElementById("result").value;
+    var fact=1;
+    for (var i = 1; i <= z; i++) {
+        document.getElementById("result").value = fact*=i;
+
+    }
+    }
+
+}     
+
+function display(val) {
+    document.getElementById("result").value += val
+}
+function pi() {
+    document.getElementById("result").value = Math.PI
+}
+function solve() {
+    var x = document.getElementById("result").value
+    var y = eval(x)
+    document.getElementById("result").value = y
+}
+function clr() {
+    document.getElementById("result").value = " "
+}
+      </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="calculator">
+            <input type="text" name="" class="result" id="result" placeholder="0">
+
+            <label for="" class="hi">Hi</label>
+            <button onclick="sqrt()">√</button>
+            <button onclick="floor()">[*]</button>
+            <button onclick="factorial()">!</button>
+            <button onclick="clr()">AC</button>
+
+
+            <button onclick="clr()">Cl</button>
+            <button onclick="backspace()">Del</button>
+            <button onclick="disply('%')">%</button>
+            <button onclick="display('/')">/</button>
+            <button id="nice" onclick="cuberoot()">∛</button>
+
+
+            <button onclick="display('7')">7</button>
+            <button onclick="display('8')">8</button>
+            <button onclick="display('9')">9</button>
+            <button onclick="display('*')">*</button>
+            <button onclick="ln()" id="nice">ln</button>
+
+
+            <button onclick="display('4')">4</button>
+            <button onclick="display('5')">5</button>
+            <button onclick="display('6')">6</button>
+            <button onclick="display('-')">-</button>
+            <button onclick="abs()" id="nice" >| |</button>
+
+
+            <button onclick="display('1')">1</button>
+            <button onclick="display('2')">2</button>
+            <button onclick="display('3')">3</button>
+            <button onclick="display('+')">+</button>
+            <button onclick="exp()" id="nice">e^</button>
+
+
+
+            <button onclick="display('.')">.</button>
+            <button onclick="display('0')">0</button>
+           
+            <button hidden></button>
+            <button hidden></button>
+
+            <button onclick="sin()" id="nice">Sin</button>
+            <button onclick="cos()" id="nice">Cos</button>
+            <button onclick="tan()" id="nice">Tan</button>
+            <button onclick="log()" id="nice">Log</button>
+            <button onclick="exp()" id="nice">π</button>
+            <button class="equal"  onclick="solve()">=</button>
+
+
+
+        </div>
+
+    </div>
+    
+    
+</body>
+</html>
